@@ -2,6 +2,40 @@
 
 buildscript {
     ext.kotlin_version = '1.3.50'
+
+    ext {
+        // App version
+
+
+        // SDK and tools
+        compile_Sdk_Version = 28
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 21
+        targetSdkVersion = 28
+        supportLibraryVersion = "28.0.0"
+
+        // App dependencies
+        kotlin_version = '1.3.21'
+        constraintLayoutVersion = "1.1.3"
+        archVersion = "1.1.1"
+        moshiVersion = "1.8.0"
+        kodeinVersion = "6.1.0"
+        okhttp3_version = "3.12.0"
+        okhttp3_logging_interceptor_version = "3.11.0"
+        kotlinCoroutineVersion = "1.1.1"
+        gsonVersion = "1.1.1"
+        fresco_version = "1.8.0"
+        daggerVersion = "2.21"
+
+        stethoVersion = "1.5.1"
+        retrofitVersion = "2.5.0"
+        picassoVersion = "2.71828"
+        nav_version = "2.1.0"
+        googleServisesVersion = "11.0.2"
+        googlePlacesVerions = "2.0.0"
+
+
+    }
     repositories {
         google()
         jcenter()
