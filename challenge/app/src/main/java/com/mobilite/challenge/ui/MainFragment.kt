@@ -11,7 +11,7 @@ import com.mobilite.challenge.factory.MainViewModelFactory
 import com.mobilite.challenge.recyclerView.StoryAdapter
 import com.mobilite.challenge.viewModel.MainViewModel
 import com.mobilite.core.common.BaseViewModelFragment
-import com.mobilite.di.component.DependenciesInit
+import com.mobilite.challenge.di.component.DependenciesInit
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 

@@ -1,5 +1,5 @@
 
-package com.mobilite.di.component
+package com.mobilite.challenge.di.component
 
 import com.mobilite.core.ChallengeBaseApplication
 import javax.inject.Singleton
