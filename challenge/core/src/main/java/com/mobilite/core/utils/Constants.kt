@@ -1,10 +1,4 @@
-/*
- * *
- *  * Created by Ahlem Jarrar on 9/4/19 9:41 PM
- *  * Copyright (c) 2019 . All rights reserved.
- *  * Last modified 9/4/19 9:41 PM
- *
- */
+
 
 package com.mobilite.core.utils
 

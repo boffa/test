@@ -1,4 +1,3 @@
-
 package com.mobilite.core.common
 
 import android.os.Bundle

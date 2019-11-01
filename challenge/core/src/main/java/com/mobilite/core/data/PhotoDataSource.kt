@@ -1,5 +1,4 @@
-package com.gyming.core.data
-
+package com.mobilite.core.data
 
 import com.mobilite.core.data.BaseResult
 import com.mobilite.core.data.PhotoResponse

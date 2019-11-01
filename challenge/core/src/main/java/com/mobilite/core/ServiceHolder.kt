@@ -1,7 +1,5 @@
 
-
 package com.mobilite.core
-
 
 class ServiceHolder {
 

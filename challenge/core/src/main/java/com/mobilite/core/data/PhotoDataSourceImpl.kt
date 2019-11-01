@@ -1,4 +1,4 @@
-package com.gyming.core.data
+package com.mobilite.core.data
 
 import com.mobilite.core.CoreService
 import com.mobilite.core.data.BaseResult

@@ -1,5 +1,3 @@
-
-
 package com.mobilite.core.common
 
 import androidx.lifecycle.MutableLiveData
