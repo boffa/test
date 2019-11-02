@@ -17,7 +17,7 @@ abstract class BaseFragment : Fragment() {
 
     protected fun toggleLoading(show: Boolean) {
         if (isAdded) {
-            activity.toggleLoading(show)
+          //  activity.toggleLoading(show)
         }
     }
 }

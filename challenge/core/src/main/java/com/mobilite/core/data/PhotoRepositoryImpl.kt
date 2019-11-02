@@ -7,7 +7,6 @@ import javax.inject.Inject
 
 class PhotoRepositoryImpl @Inject constructor(private val photoDataSource: PhotoDataSource) : PhotoRepository {
     override suspend fun getPhotos(): BaseResult<List<Photo>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         return when (val result =
             photoDataSource.getPhotos()) {

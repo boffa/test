@@ -20,7 +20,7 @@ abstract class BaseViewModelFragment <out T : BaseViewModel> : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initObservers()
+      //  initObservers()
     }
     fun EditText.onChange(cb: (String) -> Unit) {
         this.addTextChangedListener(object: TextWatcher {
