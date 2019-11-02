@@ -8,19 +8,24 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentTransaction
+import com.mobilite.core.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    internal var mainFragment: MainFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val manager = supportFragmentManager
-        val transaction = manager.beginTransaction()
-        val fragment =  MainFragment()
-        transaction.add(R.id.container,fragment)
-        transaction.commit()
+        if (savedInstanceState == null) {
+            val manager = supportFragmentManager
+            val transaction = manager.beginTransaction()
+             mainFragment =  MainFragment()
+            transaction.add(R.id.container, mainFragment!!)
+            transaction.commit()
+        }
+
     }
 
 }
