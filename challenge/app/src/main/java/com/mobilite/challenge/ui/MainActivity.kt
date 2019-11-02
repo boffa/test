@@ -18,14 +18,14 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if (savedInstanceState == null) {
+       /* if (savedInstanceState == null) {
             val manager = supportFragmentManager
             val transaction = manager.beginTransaction()
              mainFragment =  MainFragment()
             transaction.add(R.id.container, mainFragment!!)
             transaction.commit()
         }
-
+*/
     }
 
 }

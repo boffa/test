@@ -21,9 +21,9 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initLoading()
+       /* initLoading()
         if (isBottomSheetVisible == null)
-            isBottomSheetVisible = MutableLiveData()
+            isBottomSheetVisible = MutableLiveData()*/
     }
 
     private fun initLoading() {
