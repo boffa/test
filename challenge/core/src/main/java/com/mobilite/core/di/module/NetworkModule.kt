@@ -17,6 +17,8 @@ import javax.inject.Singleton
 import com.mobilite.core.BuildConfig
 import com.mobilite.core.BuildConfig.*
 import com.mobilite.core.utils.CACHE_SIZE
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 @Module
 class NetworkModule {
@@ -24,12 +26,12 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesRetrofit(
-       // moshiConverterFactory: MoshiConverterFactory,
+        moshiConverterFactory: MoshiConverterFactory,
         coroutineCallAdapterFactory: CoroutineCallAdapterFactory,
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
-           // .addConverterFactory(moshiConverterFactory)
+            .addConverterFactory(moshiConverterFactory)
             .addCallAdapterFactory(coroutineCallAdapterFactory)
             .client(okHttpClient)
             .build()
@@ -74,7 +76,7 @@ class NetworkModule {
         return Cache(context.cacheDir, CACHE_SIZE.toLong())
     }
 
-    /*@Provides
+    @Provides
     @Singleton
     fun providesMoshi(): Moshi {
         return Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
@@ -84,7 +86,7 @@ class NetworkModule {
     @Singleton
     fun providesMoshiConverterFactory(): MoshiConverterFactory {
         return MoshiConverterFactory.create()
-    }*/
+    }
 
 
     @Provides

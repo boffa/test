@@ -3,16 +3,18 @@ package com.mobilite.challenge.recyclerView
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilite.core.domain.Photo
-import kotlinx.android.synthetic.main.story_item.view.*
+import kotlinx.android.synthetic.main.photo_item.view.*
+import kotlinx.android.synthetic.main.photo_item.view.user_imageView
+import kotlinx.android.synthetic.main.photo_item.view.username_textView
 
-
-class StoryViewHolder (val view: View) : BaseViewHolder<Photo>(view)
+class PhotoViewHolder (val view: View) : BaseViewHolder<Photo>(view)
 {
 
     override fun bind(item: Photo) {
         //view.imageView.setImageURI(item.images.get(0) as String)
         view.user_imageView.setImageURI(item.user.profile_image.small)
         view.username_textView.setText(item.user.username)
+        view.date_textView.setText(item.created_at)
        // view.setOnClickListener { clickListener(item)}
 
     }

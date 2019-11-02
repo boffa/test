@@ -14,7 +14,9 @@ import kotlinx.android.parcel.RawValue
         val color: String,
         val description: String,
         val alt_description: String,
-        val urls: @RawValue Url
+        val urls: @RawValue Url,
+        val user: @RawValue User
+
     ) : Parcelable
 
 

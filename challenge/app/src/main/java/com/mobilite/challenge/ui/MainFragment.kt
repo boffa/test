@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobilite.challenge.R
 import com.mobilite.challenge.factory.MainViewModelFactory
@@ -12,6 +13,7 @@ import com.mobilite.challenge.recyclerView.StoryAdapter
 import com.mobilite.challenge.viewModel.MainViewModel
 import com.mobilite.core.common.BaseViewModelFragment
 import com.mobilite.challenge.di.component.DependenciesInit
+import com.mobilite.challenge.recyclerView.PhotoAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
@@ -48,11 +50,17 @@ class MainFragment : BaseViewModelFragment<MainViewModel>() {
 fun initAdapter() {
      getViewModel()?.getPhotos()
      story_recycler.apply {
-         layoutManager = LinearLayoutManager(activity)
+         layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
          getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
              adapter = StoryAdapter(it)
          })
      }
+    photo_recycler.apply {
+        layoutManager = GridLayoutManager(activity,2,LinearLayoutManager.VERTICAL,false)
+        getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
+            adapter = PhotoAdapter(it)
+        })
+    }
  }
 
 

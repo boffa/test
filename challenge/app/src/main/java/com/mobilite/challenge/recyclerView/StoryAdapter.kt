@@ -18,8 +18,6 @@ class StoryAdapter(val photos: List<Photo>)
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
             holder.bind(photos.get(position))
 
-
-
     }
 
     override fun getItemCount(): Int = photos.size
