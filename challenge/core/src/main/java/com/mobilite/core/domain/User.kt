@@ -8,6 +8,4 @@ import kotlinx.android.parcel.RawValue
 data class User (
     val  username: String,
     val  profile_image: @RawValue Profile_image
-
-
 )  : Parcelable
