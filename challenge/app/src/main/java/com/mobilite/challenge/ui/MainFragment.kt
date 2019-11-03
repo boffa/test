@@ -1,4 +1,5 @@
 package com.mobilite.challenge.ui
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.mobilite.core.common.BaseViewModelFragment
 import com.mobilite.challenge.di.component.DependenciesInit
 import com.mobilite.challenge.recyclerView.PhotoAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
+import java.util.*
 import javax.inject.Inject
 
 class MainFragment : BaseViewModelFragment<MainViewModel>() {
@@ -64,33 +66,31 @@ fun initAdapter() {
     photo_recycler.apply {
         layoutManager = GridLayoutManager(activity,2,LinearLayoutManager.VERTICAL,false)
         getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
-            adapter = PhotoAdapter(it)
             photoAdapter = PhotoAdapter(it)
-            search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    search(newText)
-                    return true
-                }
-
-                override fun onQueryTextSubmit(query: String): Boolean {
-                    search(query)
-                    return true
-                }
-
-            })
+            adapter = photoAdapter
 
         })
     }
+
+    search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+        override fun onQueryTextChange(newText: String): Boolean {
+            photoAdapter.filter(newText.toLowerCase(Locale.ROOT))
+            return true
+        }
+
+        override fun onQueryTextSubmit(query: String): Boolean {
+            photoAdapter.filter(query.toLowerCase(Locale.ROOT))
+            return true
+        }
+
+    })
 
 }
 
 
 
     private fun search(s: String?) {
-        photoAdapter.search(s) {
-            // update UI on nothing found
-            Toast.makeText(context, "Nothing Found", Toast.LENGTH_SHORT).show()
-        }
+
     }
 }
