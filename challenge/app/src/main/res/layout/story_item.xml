@@ -8,13 +8,6 @@
     android:layout_gravity="center"
     android:padding="5dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_arrow_img_left_guide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.944"
-        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/img_left_guide"
