@@ -19,7 +19,7 @@ import com.mobilite.challenge.recyclerView.PhotoAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
-class MainFragment : BaseViewModelFragment<MainViewModel>(), SearchView.OnQueryTextListener {
+class MainFragment : BaseViewModelFragment<MainViewModel>() {
 
     private lateinit var photoAdapter: PhotoAdapter
 
@@ -48,7 +48,6 @@ class MainFragment : BaseViewModelFragment<MainViewModel>(), SearchView.OnQueryT
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-      //  search_view.setOnQueryTextListener(this)
 
     }
 
@@ -65,29 +64,33 @@ fun initAdapter() {
     photo_recycler.apply {
         layoutManager = GridLayoutManager(activity,2,LinearLayoutManager.VERTICAL,false)
         getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
+            adapter = PhotoAdapter(it)
             photoAdapter = PhotoAdapter(it)
+            search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    search(newText)
+                    return true
+                }
+
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    search(query)
+                    return true
+                }
+
+            })
 
         })
     }
 
 }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        search(newText)
-        return true
-    }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        search(query)
-        return true
-    }
 
     private fun search(s: String?) {
-      /*  photoAdapter.search(s) {
+        photoAdapter.search(s) {
             // update UI on nothing found
             Toast.makeText(context, "Nothing Found", Toast.LENGTH_SHORT).show()
-        }*/
+        }
     }
 }
