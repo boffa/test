@@ -9,5 +9,19 @@
         android:id="@+id/mainFragment"
         android:name="com.mobilite.challenge.ui.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+       <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            />
+        <argument
+            app:argType="com.mobilite.core.domain.Photo"
+            android:name="photo"
+            >
+        </argument>
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mobilite.challenge.ui.DetailsFragment"
+        android:label="DetailsFragment" />
 </navigation>

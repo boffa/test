@@ -11,20 +11,20 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class PhotoAdapter(private val photos: ArrayList<Photo>)
-    : RecyclerView.Adapter<StoryViewHolder>() {
+class PhotoAdapter(private val photos: ArrayList<Photo>,val clickListener: ((Photo) -> Unit )={})
+    : RecyclerView.Adapter<PhotoViewHolder>() {
      var photosCopy = ArrayList<Photo>()
     init {
         photosCopy.addAll(photos)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.photo_item,parent,false)
-        return StoryViewHolder(view)
+        return PhotoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        holder.bind(photos.get(position))
+    override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
+        holder.bind(photos.get(position),clickListener)
 
 
 

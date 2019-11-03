@@ -20,11 +20,9 @@ class DetailsFragment : BaseViewModelFragment<DetailsViewModel>() {
 
     private val component by  lazy { DependenciesInit.appComponent() }
 
-    @Inject
-    lateinit var viewModelFactory : MainViewModelFactory
 
     override fun getViewModel(): DetailsViewModel? {
-        return ViewModelProviders.of(this, viewModelFactory).get(DetailsViewModel::class.java)
+        return ViewModelProviders.of(this).get(DetailsViewModel::class.java)
     }
 
     override fun onCreateView(

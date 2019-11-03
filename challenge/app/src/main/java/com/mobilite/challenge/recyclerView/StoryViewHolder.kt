@@ -7,14 +7,9 @@ import kotlinx.android.synthetic.main.story_item.view.*
 
 class StoryViewHolder (val view: View) : BaseViewHolder<Photo>(view)
 {
-
-    override fun bind(item: Photo) {
-        //view.imageView.setImageURI(item.images.get(0) as String)
+    override fun bind(item: Photo, clickListener: (Photo) -> Unit) {
         view.user_imageView.setImageURI(item.user.profile_image.small)
         view.username_textView.setText(item.user.username)
-       // view.setOnClickListener { clickListener(item)}
-
     }
-
 
 }

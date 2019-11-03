@@ -10,7 +10,6 @@ import com.mobilite.challenge.di.component.AppScope
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.ObsoleteCoroutinesApi
-import retrofit2.Retrofit
 
 @Module
 class AppModule {
@@ -34,5 +33,6 @@ class AppModule {
     fun provideMainViewModelFactory(photoRepository: PhotoRepositoryImpl): MainViewModelFactory {
         return MainViewModelFactory(photoRepository)
     }
+
 
 }
