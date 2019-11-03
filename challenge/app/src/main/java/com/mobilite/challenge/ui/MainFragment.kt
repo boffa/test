@@ -3,6 +3,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +19,9 @@ import com.mobilite.challenge.recyclerView.PhotoAdapter
 import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
-class MainFragment : BaseViewModelFragment<MainViewModel>() {
+class MainFragment : BaseViewModelFragment<MainViewModel>(), SearchView.OnQueryTextListener {
+
+    private lateinit var photoAdapter: PhotoAdapter
 
     companion object {
         fun newInstance() = MainFragment()
@@ -44,6 +48,8 @@ class MainFragment : BaseViewModelFragment<MainViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+      //  search_view.setOnQueryTextListener(this)
+
     }
 
 
@@ -53,16 +59,35 @@ fun initAdapter() {
          layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
          getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
              adapter = StoryAdapter(it)
+
          })
      }
     photo_recycler.apply {
         layoutManager = GridLayoutManager(activity,2,LinearLayoutManager.VERTICAL,false)
         getViewModel()?.getResultPhotos()?.observe(this@MainFragment, Observer {
-            adapter = PhotoAdapter(it)
+            photoAdapter = PhotoAdapter(it)
+
         })
     }
- }
 
+}
 
+    override fun onQueryTextChange(newText: String?): Boolean {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        search(newText)
+        return true
+    }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        search(query)
+        return true
+    }
+
+    private fun search(s: String?) {
+      /*  photoAdapter.search(s) {
+            // update UI on nothing found
+            Toast.makeText(context, "Nothing Found", Toast.LENGTH_SHORT).show()
+        }*/
+    }
 }

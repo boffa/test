@@ -7,7 +7,7 @@ import com.mobilite.challenge.R
 import com.mobilite.core.domain.Photo
 
 
-class StoryAdapter(val photos: List<Photo>)
+class StoryAdapter(val photos: ArrayList<Photo>)
     : RecyclerView.Adapter<StoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {

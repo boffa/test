@@ -1,7 +1,6 @@
 package com.mobilite.challenge.recyclerView
 
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.mobilite.core.domain.Photo
 import kotlinx.android.synthetic.main.photo_item.view.*
 import kotlinx.android.synthetic.main.photo_item.view.user_imageView

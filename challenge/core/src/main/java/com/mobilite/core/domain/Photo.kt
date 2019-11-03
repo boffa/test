@@ -1,5 +1,6 @@
 package com.mobilite.core.domain
 import android.os.Parcelable
+import com.mobilite.core.common.Searchable
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
@@ -17,7 +18,12 @@ import kotlinx.android.parcel.RawValue
         val urls: @RawValue Url,
         val user: @RawValue User
 
-    ) : Parcelable
+    ) : Parcelable , Searchable {
 
+
+    override fun getSearchCriteria(): String {
+        return  user.username
+    }
+}
 
 
