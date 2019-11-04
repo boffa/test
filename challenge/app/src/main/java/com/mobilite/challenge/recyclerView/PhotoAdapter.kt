@@ -39,7 +39,7 @@ class PhotoAdapter(private val photos: ArrayList<Photo>,val clickListener: ((Pho
             photos.addAll(photosCopy)
         } else {
             for (item in photosCopy) {
-                if (item.user.username.toLowerCase(Locale.ROOT).contains(text) ) {
+                if (item.user.username.toLowerCase(Locale.ROOT).trim().contains(text) ) {
                     photos.add(item)
                 }
             }

@@ -7,7 +7,7 @@ import com.mobilite.challenge.R
 import com.mobilite.core.domain.Photo
 
 
-class StoryAdapter(val photos: ArrayList<Photo>)
+class StoryAdapter(val photos: ArrayList<Photo>, val clickListener: ((Photo) -> Unit )={})
     : RecyclerView.Adapter<StoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
@@ -16,7 +16,7 @@ class StoryAdapter(val photos: ArrayList<Photo>)
     }
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-            holder.bind(photos.get(position))
+            holder.bind(photos.get(position),clickListener)
     }
 
     override fun getItemCount(): Int = photos.size

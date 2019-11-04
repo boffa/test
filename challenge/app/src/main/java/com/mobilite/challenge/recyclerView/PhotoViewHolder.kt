@@ -12,7 +12,8 @@ class PhotoViewHolder (val view: View) : BaseViewHolder<Photo>(view)
         view.user_imageView.setImageURI(item.urls.small)
         view.username_textView.setText(item.user.username)
         view.date_textView.setText(item.created_at)
-        view.setOnClickListener { clickListener(item)}
+        view.setOnClickListener {
+            clickListener(item)}
     }
 
 }

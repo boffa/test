@@ -1,0 +1,20 @@
+<!--
+  ~ /**
+  ~  * Created by Ahlem Jarrar on 9/15/19 6:50 PM
+  ~  * Copyright (c) 2019 . All rights reserved.
+  ~  * Last modified 9/15/19 6:50 PM
+  ~  */
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="13dp"
+    android:height="18dp"
+    android:viewportWidth="13"
+    android:viewportHeight="18">
+  <path
+      android:strokeWidth="1"
+      android:pathData="M11.383,17C7.483,14.45 4.592,12.377 1,9.49v-0.98C4.48,5.708 7.314,3.662 11.383,1L12,1.869C8.352,4.194 5.574,6.184 2.122,8.986c3.452,2.83 6.23,4.82 9.878,7.145l-0.617,0.869z"
+      android:fillColor="#31313C"
+      android:fillType="evenOdd"
+      android:strokeColor="#31313C"/>
+</vector>
